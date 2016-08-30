@@ -21,7 +21,6 @@ test('uid', function(t) {
   let formatUuid =
     /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 
-  console.log(myUid1);
   t.true(formatUuid.test(myUuid));
 
   t.equal(myUid1.substring(0,35), myUid2.substring(0, 35));

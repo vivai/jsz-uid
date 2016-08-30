@@ -1,5 +1,9 @@
 //@flow
 
+import {EMPTY_STRING} from 'jsz-string';
+
+// eslint-disable-next-line no-magic-numbers
+const COUNTER_LIMIT = Math.floor(Number.MAX_SAFE_INTEGER / 2);
 const HEX_RADIX = 16;
 
 let counter = 0;
@@ -16,9 +20,9 @@ let seed = uuid();
  *
  */
 export function uid(): string {
-  let id = seed + separator + counter;
+  let id = seed + separator + counter.toString(HEX_RADIX);
 
-  if (counter < Number.MAX_VALUE) {
+  if (counter < COUNTER_LIMIT) {
     counter++;
   } else {
     counter = 0;
@@ -47,3 +51,44 @@ export function uuid(): string {
   }).join('');
 }
 
+/**
+ * Returns a function to generate ids.
+ * @example
+ * let id = idGenerator();
+ * id(); // 0
+ * id(); // 1
+ *
+ * let fooId = idGenerator('foo');
+ * fooId(); // foo:0
+ * fooId(); // foo:1
+ *
+ * let barId = idGenerator('bar', 10);
+ * barId(); // bar:a
+ * barId(); // bar:b
+ */
+export function idGenerator(
+    prefix: string = EMPTY_STRING, start: number = 0): () => string {
+
+  if (start > COUNTER_LIMIT) {
+    throw new Error(`Start value too large (max = ${COUNTER_LIMIT}).`);
+  }
+
+  let counter = start;
+
+  if (prefix !== EMPTY_STRING) {
+    prefix += separator;
+  }
+
+  return function() {
+    let id = prefix + counter.toString(HEX_RADIX);
+
+    if (counter < COUNTER_LIMIT) {
+      counter++;
+    } else {
+      prefix += counter.toString(HEX_RADIX) + separator;
+      counter = 0;
+    }
+
+    return id;
+  }
+}

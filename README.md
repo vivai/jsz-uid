@@ -4,6 +4,31 @@ Generators for unique and universally unique ids.
 
 ## API
 
+### idGenerator
+```
+idGenerator(prefix: string = EMPTY_STRING, start: number = 0): () => string
+```
+Returns a function to generate ids.
+Example:
+```
+let id = idGenerator();
+id(); // 0
+id(); // 1
+
+let fooId = idGenerator('foo');
+fooId(); // foo:0
+fooId(); // foo:1
+
+let barId = idGenerator('bar', 10);
+barId(); // bar:a
+barId(); // bar:b
+```
+
+
+
+
+
+
 ### uid
 ```
 uid(): string

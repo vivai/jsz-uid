@@ -1,6 +1,6 @@
 {
   "name": "jsz-uid",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A generator for unique ids.",
   "keywords": "unique id ES6 flow",
   "author": "Marcus Kruse",
@@ -36,6 +36,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.9",
     "isparta": "^4.0.0",
     "karma": "^1.1.1",
     "karma-browserify": "^5.1.0",
@@ -53,5 +54,8 @@
     "karma-tap-reporter": "0.0.6",
     "tape": "^4.6.0",
     "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "jsz-string": "^0.2.3"
   }
 }

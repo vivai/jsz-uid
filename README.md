@@ -9,6 +9,7 @@ Generators for unique and universally unique ids.
 idGenerator(prefix: string = EMPTY_STRING, start: number = 0): () => string
 ```
 Returns a function to generate ids.
+
 Example:
 ```
 let id = idGenerator();
@@ -23,11 +24,6 @@ let barId = idGenerator('bar', 10);
 barId(); // bar:a
 barId(); // bar:b
 ```
-
-
-
-
-
 
 ### uid
 ```
@@ -47,7 +43,7 @@ uuid(): string
 ```
 Create and return a "version 4" RFC-4122 UUID string.
 
-Example
+Example:
 ```
 console.log(uuid()); // 2c6e369a-5973-4946-804d-3bd875900383
 ```

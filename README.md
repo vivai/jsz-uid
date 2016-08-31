@@ -1,3 +1,6 @@
+# Deprecated
+Renamed jsz-id.
+
 # jst-uid
 
 Generators for unique and universally unique ids.

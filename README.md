@@ -1,5 +1,5 @@
 # Deprecated
-Renamed jsz-id.
+Renamed [jsz-id](https://github.com/vivai/jsz-id).
 
 # jst-uid
 
